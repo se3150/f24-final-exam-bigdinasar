@@ -9,17 +9,22 @@ class Brute: # a brute-force cracker
 
     # encrypts a string (s) and returns the encrypted string
     def hash(self, s):
+        # print("hash return: ", hashlib.sha512(bytes(s, "utf-8")).hexdigest())
         return hashlib.sha512(bytes(s, "utf-8")).hexdigest()
 
     # generates a random string to guess
     def randomGuess(self):
         length = random.randint(1, 8)
         alphabet = string.ascii_letters + string.digits
+        # print("alphabet: ", string.ascii_letters + string.digits)
+        # print("randomGuess return: ",  ''.join([random.choice(alphabet) for i in range(length)]))
         return ''.join([random.choice(alphabet) for i in range(length)])
 
     # try to crack the target in a single attempt
     # attempt is the plain-text string we're attempting to encrypt and compare
     def bruteOnce(self, attempt):
+        # print("attempt: ", attempt)
+        # print("bruteOnce return: ", self.hash(attempt) == self.target)
         return self.hash(attempt) == self.target
 
     # try to crack the target using many random attempts, up to the limit

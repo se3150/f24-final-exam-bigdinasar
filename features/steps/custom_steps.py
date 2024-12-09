@@ -48,7 +48,7 @@ def there_is_a_field_with_id_letters(context):
         # Locate the span element using its class name
         shifts = context.behave_driver.find_element(By.TAG_NAME, "option")
 
-        target_shift = next(shift for shift in shifts if 1 in link.get_value("option"))
+        target_shift = next(shift for shift in shifts if "1" in link.get_value("option"))
         
         # Enter the number 2 into the input element
         target_shift.click()
